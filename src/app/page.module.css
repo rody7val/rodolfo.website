@@ -1,3 +1,11 @@
+.miLogo {
+  border-radius: 50%;
+  border: 2px solid grey;
+}
+.imgCard {
+  border-radius: 50%;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -51,12 +59,12 @@
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
+  transition: background 100ms, border 100ms;
 }
 
 .card span {
   display: inline-block;
-  transition: transform 200ms;
+  transition: transform 100ms;
 }
 
 .card h2 {
@@ -210,7 +218,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
+  .miLogo {
     filter: invert(1);
   }
 
