@@ -1,6 +1,66 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
+const links = [{
+  href: "mailto:ruthwolf@protonmail.com",
+  title: "✉️ Email",
+  desc: "ruthwolf@protonmail.com",
+  img: null,
+},{
+  href: "tel:+542923699363",
+  title: "📱Teléfono",
+  desc: "+54 2923 699363",
+  img: null,
+},{
+  href: "https://portfolio.rodolfo.website",
+  title: "💼 Portfolio",
+  desc: "Demostraciones",
+  img: null,
+},{
+  href: "/cv.pdf",
+  title: "📄 CV",
+  desc: "Hoja de vida",
+  img: null,
+},{
+  href: "https://github.com/agora-informatica",
+  title: "🔥 Ágora Informática",
+  desc: "@agora-informatica",
+  img: null,
+},{
+  href: "https://github.com/rody7val",
+  title: " Github",
+  desc: "@rody7val",
+  img: {
+    src: "/_github.png",
+    alt: "gh",
+    width: 28,
+    height: 28,
+  },
+},{
+  href: "https://instagram.com/r.valguarnera",
+  title: " Instagram",
+  desc: "@r.valguarnera",
+  img: {
+    src: "/instagram.png",
+    alt: "ig",
+    width: 25,
+    height: 25,
+  },
+},{
+  href: "https://linkedin.com/in/rvalguarnera",
+  title: " Linkedin",
+  desc: "@rvalguarnera",
+  img: {
+    src: "/Linkedin.png",
+    alt: "in",
+    width: 25,
+    height: 25,
+  },
+},]
+
+const ARS = "0000139300000000426879"
+const BTC = "bc1quwg7nkawp5w4fem0pxeqyy4msurqvn5mmcunvat7yxzdqgjxhfesp7ld4v"
+
 export default function Home() {
   return (
     <main className={styles.main}>
@@ -25,130 +85,28 @@ export default function Home() {
       </div> 
 
       <div className={styles.grid}>
-        <a
-          href="mailto:ruthwolf@protonmail.com"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            ✉️ Email <span>-&gt;</span>
-          </h2>
-          <p>ruthwolf@protonmail.com</p>
-        </a>
+        {links.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            className={styles.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2>
+              {item.img && <Image
+                src={item.img.src}
+                alt={item.img.alt}
+                width={item.img.width}
+                height={item.img.height}
+                priority
+              />}
+              {item.title} <span>-&gt;</span>
+            </h2>
+            <p>{item.desc}</p>
+          </a>
+        ))}
 
-        <a
-          href="tel:+542923699363"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            📱Teléfono <span>-&gt;</span>
-          </h2>
-          <p>2923699363</p>
-        </a>
-
-        <a
-          href="https://instagram.com/r.valguarnera"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-          <Image
-              src="/instagram.png"
-              alt="ig"
-              width={25}
-              height={25}
-              priority
-            /> Instagram <span>-&gt;</span>
-          </h2>
-          <p>
-            @r.valguarnera
-          </p>
-        </a>
-
-        <a
-          href="https://linkedin.com/in/rvalguarnera"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-          <Image
-              src="/Linkedin.png"
-              alt="in"
-              width={25}
-              height={25}
-              priority
-            /> Linkedin <span>-&gt;</span>
-          </h2>
-          <p>
-            @rvalguarnera
-          </p>
-        </a>
-
-        <a
-          href="https://github.com/rody7val"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-          <Image
-              src="/github.webp"
-              alt="gh"
-              className={styles.imgCard}
-              width={38}
-              height={30}
-              priority
-            /> GitHub <span>-&gt;</span>
-          </h2>
-          <p>@rody7val</p>
-        </a>
-
-        <a
-          href="https://github.com/agora-informatica"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            🔥 Ágora Informática <span>-&gt;</span>
-          </h2>
-          <p>
-            @agora-informatica
-          </p>
-        </a>
-
-        <a
-          href="https://portfolio.rodolfo.website"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            💼 Portfolio <span>-&gt;</span>
-          </h2>
-          <p>
-            Demostraciones
-          </p>
-        </a>
-
-        <a
-          href="/cv.pdf"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            📄 CV <span>-&gt;</span>
-          </h2>
-          <p>
-            Hoja de vida
-          </p>
-        </a>
       </div>
 
       <div className={styles.center}>
@@ -161,7 +119,7 @@ export default function Home() {
         >
           <p>
             CVU (ARS): <br/>
-            <code>0000139300000000426879</code>
+            <code>{ARS}</code>
           </p>
         </a>
         <br/>
@@ -170,7 +128,7 @@ export default function Home() {
         >
           <p>
             Bitcoin (BTC): <br/>
-            <code>bc1quwg7nkawp5w4fem0pxeqyy4msurqvn5mmcunvat7yxzdqgjxhfesp7ld4v</code>
+            <code>{BTC}</code>
           </p>
         </a>
       </div>
